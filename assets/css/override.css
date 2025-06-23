@@ -1,0 +1,30 @@
+/* Gallery overrides for larger images */
+.gallery {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 10px !important;
+  padding: 0 !important; /* Remove extra padding */
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+@media (min-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+    padding: 0 !important; /* Remove extra padding */
+  }
+}
+
+.gallery-item {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 3/2 !important;
+}
+
+.gallery-item img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}

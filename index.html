@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>JVS Vision - Photography</title>
+  
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="/assets/css/main.css?v=20250615-header-update">
+  <link rel="stylesheet" href="/assets/css/override.css?v=20250619">
+  
+  <!-- Preload fonts -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="header-content">
+        <h1 class="site-title" style="font-family: 'Inter', sans-serif; font-size: 30px; font-weight: 300; text-transform: uppercase; letter-spacing: 0.05em;">JORGE VIÑALS</h1>
+        <nav class="main-nav">
+          <a href="#gallery" data-section="gallery" class="active">Gallery</a>
+          <a href="#about" data-section="about">About</a>
+          <a href="#contact" data-section="contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content" id="dynamic-content">
+      <!-- Content will be loaded here -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p>&copy; <span id="current-year">2025</span> Jorge Viñals</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Lightbox overlay -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <img class="lightbox-image" id="lightbox-image" src="" alt="">
+    <div class="lightbox-nav">
+      <button class="lightbox-prev" aria-label="Previous">&larr;</button>
+      <button class="lightbox-next" aria-label="Next">&rarr;</button>
+    </div>
+  </div>
+
+  <!-- Main JavaScript -->
+  <script type="module" src="/assets/js/main.js?v=20250615-header-update"></script>
+</body>
+</html>
