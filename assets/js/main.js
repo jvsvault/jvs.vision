@@ -148,7 +148,7 @@ function renderGalleryItems() {
          data-index="${galleryConfig.images.indexOf(image)}" 
          data-category="${image.category}"
          data-number="${String(index + 1).padStart(2, '0')}">
-      <img src="/assets/gallery/${image.filename}" 
+      <img src="assets/gallery/${image.filename}" 
            alt="${image.title}" 
            loading="lazy">
     </div>
@@ -283,7 +283,7 @@ function openLightbox(index) {
   const lightboxImage = document.getElementById('lightbox-image');
   const image = galleryConfig.images[index];
   
-  lightboxImage.src = `/assets/gallery/${image.filename}`;
+  lightboxImage.src = `assets/gallery/${image.filename}`;
   lightboxImage.alt = image.title;
   lightbox.classList.add('active');
   
@@ -307,7 +307,7 @@ function navigateImage(direction) {
   
   const lightboxImage = document.getElementById('lightbox-image');
   const image = galleryConfig.images[currentImageIndex];
-  lightboxImage.src = `/assets/gallery/${image.filename}`;
+  lightboxImage.src = `assets/gallery/${image.filename}`;
   lightboxImage.alt = image.title;
 }
 
