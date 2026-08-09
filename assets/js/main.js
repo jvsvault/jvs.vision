@@ -201,7 +201,7 @@ function renderAbout(container) {
       <p style="margin-top: 2rem;">
         If you want to check my engineering persona, you can visit:
       </p>
-      <a href="https://jvsvault.dev" target="_blank" class="boxed-link">VISIT JVSVAULT.DEV</a>
+      <a href="https://sudo.jorgevs.com" target="_blank" class="boxed-link">VISIT SUDO.JORGEVS.COM</a>
     </div>
   `;
 }
@@ -214,7 +214,7 @@ function renderContact(container) {
       <p>
         I have built this site just to have my photographies somewhere pretty instead of collecting digital dust in a hard drive. I have no ambitions, no goals, no pretensions. But if for some reason you want to drop me a line because you want to use one of my photos, or want me to participate in some kind of way in a project with a camera, you can drop me a line here.
       </p>
-      <a href="mailto:jvs.vision@proton.me" class="boxed-link">JVS.VISION@PROTON.ME</a>
+      <a href="mailto:jvs.work@proton.me" class="boxed-link">JVS.WORK@PROTON.ME</a>
     </div>
   `;
 }
