@@ -1,3 +1,5 @@
+import { renderMarkdown } from './md.js';
+
 /**
  * JVS Vision - Photography Portfolio
  * Professional photographer portfolio with masonry layout
@@ -187,37 +189,24 @@ function initializeGalleryItems() {
 }
 
 // Enhanced About section
-function renderAbout(container) {
-  container.innerHTML = `
-    <div class="about-content fade-in">
-      <h2>ABOUT</h2>
-      <p>
-        I could probably track my love for photography since forever, but my first film camera came to my life around 15 years ago. An old Nikon FE that belonged to my grandfather. If you ask me who am I, or ask my friends what defines me best, we'd probably say music. Music is the foundation that carries the weight of my existence. But it does require skill, order, planning, order, rationalization, and above all, time. Like a sculpture, or a painting, you have to go over it a hundred times before it has some shape to it. But everything that I've done, created, become, learned, experienced, can converge in a split second when I frame something and just shoot. In a way, I feel like a kid, just doing without the need of self reflection. No rational thoughts, just vision.
-      </p>
-      <p style="margin-top: 2rem;">
-        If you want to check my work as a music composer, you can check:
-      </p>
-      <a href="https://jorgevs.com" target="_blank" class="boxed-link">VISIT JORGEVS.COM</a>
-      <p style="margin-top: 2rem;">
-        If you want to check my engineering persona, you can visit:
-      </p>
-      <a href="https://sudo.jorgevs.com" target="_blank" class="boxed-link">VISIT SUDO.JORGEVS.COM</a>
-    </div>
-  `;
+async function renderSection(container, nombre, clase) {
+  try {
+    const r = await fetch(`/content/${nombre}.md?t=${Date.now()}`);
+    if (!r.ok) throw new Error(`content/${nombre}.md → HTTP ${r.status}`);
+    const src = await r.text();
+    const titulo = (src.match(/<!--\s*title:\s*(.+?)\s*-->/) || [])[1];
+    if (titulo) document.title = titulo;
+    container.innerHTML = `<div class="${clase} fade-in">${renderMarkdown(src.replace(/<!--.*?-->/s, ''))}</div>`;
+  } catch (e) {
+    console.error(e);
+    container.innerHTML = '<p>Content unavailable. Try reloading.</p>';
+  }
 }
 
+function renderAbout(container) { return renderSection(container, 'about', 'about-content'); }
+
 // Enhanced Contact section
-function renderContact(container) {
-  container.innerHTML = `
-    <div class="contact-content fade-in">
-      <h2>CONTACT</h2>
-      <p>
-        I have built this site just to have my photographies somewhere pretty instead of collecting digital dust in a hard drive. I have no ambitions, no goals, no pretensions. But if for some reason you want to drop me a line because you want to use one of my photos, or want me to participate in some kind of way in a project with a camera, you can drop me a line here.
-      </p>
-      <a href="mailto:jvs.work@proton.me" class="boxed-link">JVS.WORK@PROTON.ME</a>
-    </div>
-  `;
-}
+function renderContact(container) { return renderSection(container, 'contact', 'contact-content'); }
 
 // Enhanced Lightbox
 function initializeLightbox() {
